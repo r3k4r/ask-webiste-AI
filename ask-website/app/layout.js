@@ -1,3 +1,4 @@
+import Provider from "@/components/Provider";
 import "./globals.css";
 
 export const metadata = {
@@ -8,8 +9,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        {children}
+      <body className="min-h-screen antialiased">
+        <Provider>
+          <main className="h-screen dark text-foreground bg-background">
+            {children}
+          </main>
+        </Provider>
       </body>
     </html>
   );

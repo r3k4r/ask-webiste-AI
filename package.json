@@ -1,8 +1,0 @@
-{
-  "devDependencies": {
-    "@types/react": "^18.3.12"
-  },
-  "dependencies": {
-    "@upstash/rag-chat": "^2.0.1"
-  }
-}
