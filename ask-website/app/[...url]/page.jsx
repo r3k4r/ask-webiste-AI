@@ -15,8 +15,8 @@ const Page = async({params}) => {
     const reconstructedUrl = reconstructUrl({url: url})
 
     const isAlreadyAdded = await redis.sismember("indexed-urls", reconstructedUrl)   
-    
-    const sessionCookie = await cookies().get("sessionId")?.value
+    const cookie = await cookies()
+    const sessionCookie =  cookie.get("sessionId")?.value
 
     const sessionId = (reconstructUrl + "--" + sessionCookie).replace(/\//g, "")
 

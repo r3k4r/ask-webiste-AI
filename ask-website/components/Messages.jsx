@@ -1,8 +1,20 @@
+'use client'
+
 import { MessageSquare } from "lucide-react"
 import AsingleMessage from "./Message"
+import { useEffect, useRef } from "react";
 
 
 const Messages = ({messages}) => {
+
+  const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
+
   return (
     <div className='flex max-h-[calc(100vh-3.5rem-7rem)] flex-1 flex-col overflow-y-auto'>
         {
@@ -20,6 +32,7 @@ const Messages = ({messages}) => {
                 </div>
              )
         }
+        <div ref={messagesEndRef} />
     </div>
   )
 }
